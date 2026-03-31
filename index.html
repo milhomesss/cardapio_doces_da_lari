@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doces da Lari - Cardápio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --rosa-claro: #fff0f5;
+            --rosa-medio: #ffb6c1;
+            --rosa-choque: #ff69b4;
+            --rosa-escuro: #c71585;
+            --gradiente: linear-gradient(135deg, #ff69b4 0%, #c71585 100%);
+            --branco: #ffffff;
+            --texto: #4a4a4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--rosa-claro);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--gradiente);
+            color: var(--branco);
+            text-align: center;
+            padding: 4.5rem 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.95;
+        }
+
+        .tabs-container {
+            max-width: 900px;
+            margin: -25px auto 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .tab-button {
+            background-color: var(--branco);
+            color: var(--rosa-escuro);
+            border: none;
+            padding: 18px 20px;
+            cursor: pointer;
+            border-radius: 15px 15px 0 0;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+        }
+
+        .tab-button.active {
+            background-color: var(--rosa-choque);
+            color: var(--branco);
+            transform: translateY(-5px);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+            padding: 3rem 2rem;
+            background: var(--branco);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 30px rgba(199, 21, 133, 0.1);
+            display: none;
+        }
+
+        .container.active {
+            display: block;
+        }
+
+        .categoria {
+            margin-bottom: 3rem;
+        }
+
+        .categoria h2 {
+            color: var(--rosa-escuro);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .preco-destaque {
+            text-align: center;
+            color: var(--rosa-choque);
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .grid-itens {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .item {
+            background: #fff9fb;
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--rosa-medio);
+            color: var(--rosa-escuro);
+            font-weight: 500;
+        }
+
+        .box-nutella {
+            background: #fdf5e6;
+            border: 2px dashed #a52a2a;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .box-nutella h3 {
+            color: #a52a2a;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-pedido {
+            display: block;
+            width: fit-content;
+            margin: 3rem auto;
+            padding: 1.2rem 3.5rem;
+            background: var(--gradiente);
+            color: var(--branco);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(199, 21, 133, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background: #2d2d2d;
+            color: var(--branco);
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 3rem; }
+            .tabs-container { flex-direction: column; margin-top: 0; }
+            .tab-button { border-radius: 10px; margin-bottom: 4px; }
+            .container { padding: 1.5rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Doces da Lari</h1>
+        <p>Bolos artesanais e doces feitos com amor!</p>
+    </header>
+
+    <div class="tabs-container">
+        <button class="tab-button active" onclick="openTab(event, 'confeitados')">Bolos Confeitados</button>
+        <button class="tab-button" onclick="openTab(event, 'caseiros')">Bolos Caseiros</button>
+        <button class="tab-button" onclick="openTab(event, 'doces')">Doces</button>
+    </div>
+
+    <div id="confeitados" class="container active">
+        <section class="categoria">
+            <h2>Recheios Tradicionais</h2>
+            <span class="preco-destaque">R$ 90,00 / kg</span>
+            <div class="grid-itens">
+                <div class="item">Brigadeiro</div>
+                <div class="item">Doce de Leite</div>
+                <div class="item">Paçoca</div>
+                <div class="item">Beijinho</div>
+                <div class="item">Chocolate Amargo</div>
+                <div class="item">Maracujá</div>
+                <div class="item">Limão</div>
+                <div class="item">Sensação</div>
+                <div class="item">Leite Ninho</div>
+                <div class="item">Prestígio</div>
+                <div class="item">Creme Belga</div>
+                <div class="item">Bicho de Pé</div>
+                <div class="item">Churros</div>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <h2>Recheios Especiais</h2>
+            <span class="preco-destaque">R$ 100,00 / kg</span>
+            <div class="grid-itens">
+                <div class="item">Ninho com Morango</div>
+                <div class="item">Ninho com Uva</div>
+                <div class="item">Abacaxi com Creme</div>
+                <div class="item">Pêssego com Doce de Leite</div>
+                <div class="item">Doce de Leite com Ameixa</div>
+            </div>
+        </section>
+
+        <div class="box-nutella">
+            <h3>🤎 Adicional de Nutella</h3>
+            <p><strong>R$ 20,00</strong> por kg</p>
+            <p>2kg: <strong>R$ 40,00</strong> | 3kg: <strong>R$ 60,00</strong></p>
+        </div>
+    </div>
+
+    <div id="caseiros" class="container">
+        <section class="categoria">
+            <h2>Bolo Simples</h2>
+            <span class="preco-destaque">R$ 25,00</span>
+            <div class="grid-itens">
+                <div class="item">Laranja</div>
+                <div class="item">Limão</div>
+                <div class="item">Fubá</div>
+                <div class="item">Fubá c/ Goiabada</div>
+                <div class="item">Milho</div>
+                <div class="item">Mandioca</div>
+                <div class="item">Iogurte</div>
+                <div class="item">Coco</div>
+                <div class="item">Banana</div>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <h2>Bolo com Cobertura</h2>
+            <span class="preco-destaque">R$ 30,00</span>
+            <div class="grid-itens">
+                <div class="item">Chocolate</div>
+                <div class="item">Cenoura</div>
+                <div class="item">Churros</div>
+                <div class="item">Cocada</div>
+                <div class="item">Paçoca</div>
+                <div class="item">Prestígio</div>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <h2>Bolo Piscininha</h2>
+            <span class="preco-destaque">R$ 32,00</span>
+            <div class="grid-itens">
+                <div class="item">Churros</div>
+                <div class="item">Chocolate</div>
+                <div class="item">Cenoura</div>
+            </div>
+        </section>
+    </div>
+
+    <div id="doces" class="container">
+        <section class="categoria">
+            <h2>Doces Tradicionais</h2>
+            <span class="preco-destaque">R$ 110,00 (cento)</span>
+            <div class="grid-itens">
+                <div class="item">Brigadeiro</div>
+                <div class="item">Beijinho</div>
+                <div class="item">Leite Ninho</div>
+                <div class="item">Bicho de Pé</div>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <h2>Doces Gourmet</h2>
+            <span class="preco-destaque">R$ 150,00 (cento)</span>
+            <div class="grid-itens">
+                <div class="item">Confete</div>
+                <div class="item">Ninho c/ Nutella</div>
+                <div class="item">Amendoim c/ Nutella</div>
+                <div class="item">Oreo</div>
+                <div class="item">Churros</div>
+                <div class="item">Paçoca</div>
+            </div>
+        </section>
+    </div>
+
+    <button class="btn-pedido" onclick="fazerPedido()">Fazer Encomenda</button>
+
+    <footer>
+        <p><strong>Doces da Lari</strong></p>
+        <p>WhatsApp: (11) 97722-2637</p>
+        <p>Instagram: @doces.da.lariii</p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, container, tabButtons;
+            container = document.getElementsByClassName("container");
+            for (i = 0; i < container.length; i++) {
+                container[i].style.display = "none";
+                container[i].classList.remove("active");
+            }
+            tabButtons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        function fazerPedido() {
+            window.open("https://wa.me/5511977222637?text=Olá,%20Lari!%20Vi%20seu%20cardápio%20e%20gostaria%20de%20fazer%20um%20pedido.", '_blank');
+        }
+    </script>
+</body>
+</html>
