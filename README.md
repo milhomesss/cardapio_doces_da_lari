@@ -2,7 +2,7 @@
 
 
 
-🔗 \*\*Acesse o cardápio online:\*\* \[milhomesss.github.io/cardapio\_doces\_da\_lari](https://milhomesss.github.io/cardapio\_doces\_da\_lari/)
+🔗 \*\*Acesse o cardápio online:(https://milhomesss.github.io/cardapio\_doces\_da\_lari/)
 
 
 
