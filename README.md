@@ -44,17 +44,5 @@ O projeto foi construído utilizando tecnologias front-end puras, sem uso de fra
 
 
 
-\## 🚀 Como visualizar o projeto localmente
 
-
-
-Como é um projeto puramente estático (Front-end), não é necessário instalar dependências para rodá-lo na sua máquina.
-
-
-
-1\. Faça o clone deste repositório:
-
-&#x20;  ```bash
-
-&#x20;  git clone \[https://github.com/milhomesss/cardapio\_doces\_da\_lari.git](https://github.com/milhomesss/cardapio\_doces\_da\_lari.git)
 
